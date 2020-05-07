@@ -1,55 +1,68 @@
-// const { writeFile, copyFile } = require('./creationModule');
-
 const tableOfContentsInstall = instruct => {
   if (!instruct) {
     return '';
   }
   return `
-    *[Installation](#Installation)
+  *[Installation](#Installation)
   `
 };
 const installInstructions = instruct => {
   if (!instruct) {
     return '';
   }
+  // need to figure out how to use indents for structure while printing proper spaces on README
   return `
     ## Installation
     Installation instructions listed below:
-    \`\`\`
-    ${instruct}
-    \`\`\`
+    \`\`\`${instruct}\`\`\`
+  `;
+};
+
+const tableOfContentsContribute = contributions => {
+  if (!contributions) {
+    return '';
+  }
+  return `
+  *[Contributing](#Contributing)
+  `
+};
+const contributeInstructions = contributions => {
+  if (!contributions) {
+    return '';
+  }
+  return `
+    ## Contributing
+    ${contributions}
   `;
 };
 
 // really useful markdown list found at https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 module.exports = generatedReadme => {
-  const { installation, ...header } = generatedReadme;
+  const { installation, contribute, ...necessary } = generatedReadme;
     return `
-    # ${header.title}
+      # ${necessary.title}
 
-    ## Description
-    ${header.description}
+      ## Description
+      ${necessary.description}
 
-    ## Table of Contents
-    ${tableOfContentsInstall(installation)}
-    *[Usage](#Usage)
+      ## Table of Contents
+      ${tableOfContentsInstall(installation)}
+      *[Usage](#Usage)
 
-    *[License](#License)
+      *[License](#License)
+      ${tableOfContentsContribute(contribute)}
+      *[Tests](#Tests)
 
-    *[Contributing](#Contributing)
+      *[Questions](#Questions)
+      ${installInstructions(installation)}
+      ## Usage
+      ${necessary.usage}
 
-    *[Tests](#Tests)
+      ## License
+      ${necessary.licenses}
+      ${contributeInstructions(contribute)}
+      ## Tests
 
-    *[Questions](#Questions)
-    ${installInstructions(installation)}
-    ## Usage
-
-    ## License
-
-    ## Contributing
-
-    ## Tests
-
-    ## Questions
-  `;
+      ## Questions
+    `;
 };
