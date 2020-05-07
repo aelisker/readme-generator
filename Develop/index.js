@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generatedReadme = require('./utils/generateMarkdown');
 
 // array of questions for user
 const questions = [
@@ -31,6 +31,18 @@ const questions = [
         return false;
       }
     }
+  },
+  {
+    type: 'confirm',
+    name: 'confirmInstallationInstructions',
+    message: 'Are there instructions needed for installation?',
+    default: true
+  },
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'Enter any commands needed for installation:',
+    when: ({confirmInstallationInstructions}) => confirmInstallationInstructions
   }
 ];
 
@@ -49,7 +61,7 @@ const writeToFile = data => {
 
 inquirer.prompt(questions)
 .then(answers => {
-  return generateMarkdown(answers);
+  return generatedReadme(answers);
 })
 .then(readmeContent => {
   return writeToFile(readmeContent);

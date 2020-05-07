@@ -1,36 +1,55 @@
-// function to generate markdown for README
-// really useful markdown list found at https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-function generateMarkdown(data) {
+// const { writeFile, copyFile } = require('./creationModule');
+
+const tableOfContentsInstall = instruct => {
+  if (!instruct) {
+    return '';
+  }
   return `
-    # ${data.title}
+    *[Installation](#Installation)
+  `
+};
+const installInstructions = instruct => {
+  if (!instruct) {
+    return '';
+  }
+  return `
+    ## Installation
+    Installation instructions listed below:
+    \`\`\`
+    ${instruct}
+    \`\`\`
+  `;
+};
+
+// really useful markdown list found at https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+module.exports = generatedReadme => {
+  const { installation, ...header } = generatedReadme;
+    return `
+    # ${header.title}
 
     ## Description
-    ${data.description}
+    ${header.description}
 
     ## Table of Contents
-    *[Installation](Installation)
-    *[Usage](Usage)
-    *[License](License)
+    ${tableOfContentsInstall(installation)}
+    *[Usage](#Usage)
+
+    *[License](#License)
+
     *[Contributing](#Contributing)
-    *[Tests](Tests)
+
+    *[Tests](#Tests)
+
     *[Questions](#Questions)
-
-    ## Installation
-
+    ${installInstructions(installation)}
     ## Usage
 
     ## License
 
     ## Contributing
 
-    <a name="tests"/>
     ## Tests
 
-    <a name="questions"/>
     ## Questions
-
-
-`;
-}
-
-module.exports = generateMarkdown;
+  `;
+};
