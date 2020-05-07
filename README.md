@@ -1,27 +1,26 @@
+# Portfolio Generator
 
-    # Portfolio Generator
+## Description
+This is used to generate a Readme
 
-    ## Description
-    This is used to generate a Readme
+## Table of Contents
+*[Installation](Installation)
+*[Usage](#Usage)
+*[License](License)
+*[Contributing](Contributing)
+*[Tests](./Tests)
+*[Questions](#Questions)
 
-    ## Table of Contents
-    *[Installation](Installation)
-    *[Usage](#Usage)
-    *[License](License)
-    *[Contributing](Contributing)
-    *[Tests](./Tests)
-    *[Questions](#Questions)
-
-    ## Installation
+## Installation
 
 <a name="usage"/>
-    ## Usage
-    
+## Usage
+
 <a name="license"/>
-    ## License
+## License
 
-    ## Contributing
+## Contributing
 
-    ## Tests
+## Tests
 
-    ## Questions
+## Questions
