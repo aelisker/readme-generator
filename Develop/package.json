@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/aelisker/readme-generator/issues"
   },
-  "homepage": "https://github.com/aelisker/readme-generator#readme"
+  "homepage": "https://github.com/aelisker/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0"
+  }
 }

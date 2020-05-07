@@ -7,7 +7,30 @@ const questions = [
   {
     type: 'input',
     name: 'title',
-    message: 'What is your name? (Required)'
+    message: 'What is the title of your project? (Required)',
+    validate: title => {
+      if (title) {
+        return true;
+      }
+      else {
+        console.log ('Your README file needs a title!');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'description',
+    message: 'Please give a brief description of this repository: (Required)',
+    validate: desc => {
+      if (desc) {
+        return true;
+      }
+      else {
+        console.log('You must have a description of your project, even if it\'s only a few words!');
+        return false;
+      }
+    }
   }
 ];
 
