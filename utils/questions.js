@@ -62,13 +62,6 @@ const questions = [
     }
   },
   {
-    type: 'list',
-    name: 'license',
-    message: 'Please choose an open source license',
-    choices: ['MIT', 'GNU GPLv3', 'GNU APGLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache 2.0', 'Boost Software Licence 1.0', 'Unlicensed'],
-    default: 'MIT'
-  },
-  {
     type: 'confirm',
     name: 'confirmContributing',
     message: 'Would you like to add instructions for contributors?',
@@ -86,6 +79,13 @@ const questions = [
         return false;
       }
     }
+  },
+  {
+    type: 'list',
+    name: 'license',
+    message: 'Please choose an open source license',
+    choices: ['MIT', 'GNU GPLv3', 'GNU APGLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache 2.0', 'Boost Software Licence 1.0', 'Unlicensed'],
+    default: 'MIT'
   },
   {
     type: 'confirm',
