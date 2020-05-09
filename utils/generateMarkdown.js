@@ -66,8 +66,7 @@ const emailInfo = emailAddress => {
 // really useful markdown list found at https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 module.exports = generatedReadme => {
   const { installation, contribute, tests, email, ...necessary } = generatedReadme;
-    return `${genLicenseImg(necessary.license)}
-# ${necessary.title}
+    return `# ${necessary.title} ${genLicenseImg(necessary.license)}
 
 ## Description
 ${necessary.description}
